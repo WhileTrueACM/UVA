@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
         StringBuilder sb = new StringBuilder();
-        while(true)
+        while(1 == 1)
         {
             int H = sc.nextInt() , L = sc.nextInt();
             if(H == 0) break;
