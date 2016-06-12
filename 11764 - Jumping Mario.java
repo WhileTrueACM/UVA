@@ -21,7 +21,6 @@ public class Main {
                 int cur = sc.nextInt();
                 if(cur > last) ++t;
                 else if(cur < last) ++s;
-                else ;
                 last = cur;
             }
             out.printf("Case %d: %d %d\n" , i , t , s);
