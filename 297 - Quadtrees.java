@@ -21,8 +21,6 @@ public class Main {
             case 'f' : color(a , b , c , d);
         }
     }
-
-    
     public static void color (int row1 , int col1 , int row2 , int col2)
     {
         for(int i = row1 ; i < row2 ; ++i)
