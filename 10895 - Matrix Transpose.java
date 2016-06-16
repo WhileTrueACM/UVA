@@ -30,7 +30,11 @@ public class Main {
                 for(int j = 0 ; j < n ; ++j) if (arr[i][j]!=0)out.printf(" %d",j + 1);
                 out.printf("\n");
                 boolean first = true;
-                for(int j = 0 ; j < n ; ++j) if (arr[i][j]!=0) if (first) {out.printf("%d" , arr[i][j]); first = false ; }else out.printf(" %d" , arr[i][j]);
+                for(int j = 0 ; j < n ; ++j) 
+                    if (arr[i][j]!=0)
+                        if (first) {out.printf("%d" , arr[i][j]); first = false ;}
+                        else out.printf(" %d" , arr[i][j]);
+                
                 out.printf("\n");
             }
         }
