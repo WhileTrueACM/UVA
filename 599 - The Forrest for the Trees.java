@@ -47,38 +47,7 @@ public class Main {
         out.close();
     }
 
-    static public class FenwickTree { // one-based DS
-
-        int n;
-        int[] ft;
-
-        FenwickTree(int size) {
-            n = size;
-            ft = new int[n + 1];
-        }
-
-        int rsq(int b) //O(log n)
-        {
-            int sum = 0;
-            while (b > 0) {
-                sum += ft[b];
-                b -= b & -b;
-            }        //min?
-            return sum;
-        }
-
-        int rsq(int a, int b) {
-            return rsq(b) - rsq(a - 1);
-        }
-
-        void point_update(int k, int val)    //O(log n), update = increment
-        {
-            while (k <= n) {
-                ft[k] += val;
-                k += k & -k;
-            }        //min?
-        }
-    }
+    
 
     static  class Scanner
     {
