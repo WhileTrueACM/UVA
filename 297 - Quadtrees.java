@@ -7,35 +7,22 @@ public class Main {
     static int image [][];
     static char [] first , second ;
     static int idx ;
-    public static void fill1 (int a , int b , int c , int d , int crntIdx)
+    public static void fill (int a , int b , int c , int d , int crntIdx , int arrIdx)
     {
-        switch (first[crntIdx])
+        switch (arrIdx == 0 ? first[crntIdx] : second[crntIdx])
         {
             case 'p' :
-                fill1( a + c >> 1 , b          , c          , b + d >> 1 , ++idx);
-                fill1(a           , b          , a + c >> 1 , b + d >> 1 , ++idx);
-                fill1(a           , b + d >> 1 , a + c >> 1 , d          , ++idx);
-                fill1(a + c >> 1  , b + d >> 1 , c          , d          , ++idx);
+                fill( a + c >> 1 , b          , c          , b + d >> 1 , ++idx , arrIdx);
+                fill(a           , b          , a + c >> 1 , b + d >> 1 , ++idx , arrIdx);
+                fill(a           , b + d >> 1 , a + c >> 1 , d          , ++idx , arrIdx);
+                fill(a + c >> 1  , b + d >> 1 , c          , d          , ++idx , arrIdx);
                 break;
             case 'e' : break;
             case 'f' : color(a , b , c , d);
         }
     }
 
-    public static void fill2 (int a , int b , int c , int d , int crntIdx)
-    {
-        switch (second[crntIdx])
-        {
-            case 'p' :
-                fill2( a + c >> 1 , b          , c          , b + d >> 1 , ++idx);
-                fill2(a           , b          , a + c >> 1 , b + d >> 1 , ++idx);
-                fill2(a           , b + d >> 1 , a + c >> 1 , d          , ++idx);
-                fill2(a + c >> 1  , b + d >> 1 , c          , d          , ++idx);
-                break;
-            case 'e' : break;
-            case 'f' : color(a , b , c , d);
-        }
-    }
+    
     public static void color (int row1 , int col1 , int row2 , int col2)
     {
         for(int i = row1 ; i < row2 ; ++i)
@@ -60,8 +47,8 @@ public class Main {
             image = new int[32][32];
             first = sc.next().toCharArray();
             second = sc.next().toCharArray();
-            idx = 0; fill1(0,0,32,32,idx);
-            idx = 0; fill2(0,0,32,32,idx);
+            idx = 0; fill(0,0,32,32,idx,0);
+            idx = 0; fill(0,0,32,32,idx,1);
             out.printf("There are %d black pixels.\n" , count ());
         }
         out.flush();
