@@ -43,23 +43,23 @@ bool rw [100] , leftDiag[100] , rightDiag[100];
 string board[15];
 
 void backtrack (int col)
-    {
+{
 
-        if(col == N){
+       if(col == N){
             ++ cnt;
             return;
-        }
+       }
 
-        for(int i = 0 ; i < N ; ++i)
-            if(board[i][col] == '.' && ! (rw[i + 50] || leftDiag[col - i + 50] || rightDiag[col + i + 50]) )
-            {
-                rw[i + 50] = leftDiag[col - i + 50] = rightDiag[col + i + 50] =  true;
+       for(int i = 0 ; i < N ; ++i)
+           if(board[i][col] == '.' && ! (rw[i + 50] || leftDiag[col - i + 50] || rightDiag[col + i + 50]) )
+           {
+              rw[i + 50] = leftDiag[col - i + 50] = rightDiag[col + i + 50] =  true;
 
-                backtrack(col + 1);
+              backtrack(col + 1);
 
-                rw[i + 50] = leftDiag[col - i + 50] = rightDiag[col + i + 50] =  false;
+              rw[i + 50] = leftDiag[col - i + 50] = rightDiag[col + i + 50] =  false;
             }
-    }
+}
 
 int main()
 {
