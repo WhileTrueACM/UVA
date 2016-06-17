@@ -24,9 +24,6 @@ public class Main {
 
                 for(int i = x1 ; i <= x2 ; ++i)
                 {
-//                    System.out.println();
-//                    System.out.println(arr[(i * N + y1)] + " " + arr[(i * N + y2)]);
-//                    System.out.println();
                     max = Math.max(max , segmentTree.query(1 , 0 , N * N - 1 , i * N + y1 , i * N + y2).max);
                     min = Math.min(min , segmentTree.query(1 , 0 , N * N - 1 , i * N + y1 , i * N + y2).min);
                 }
