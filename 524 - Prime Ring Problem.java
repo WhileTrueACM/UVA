@@ -44,7 +44,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         out = new PrintWriter(System.out);
         boolean first = true;
-        for (int T = 1 ; T  <= 2 ; ++ T)
+        for (int T = 1 ; sc.ready() ; ++ T)
         {
             N = sc.nextInt();
             primes = new boolean[16 +17 + 1];
