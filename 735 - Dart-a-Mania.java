@@ -13,10 +13,14 @@ public class Main {
         ArrayList<Integer> arr = new ArrayList<Integer>();
         TreeSet<Integer> ts = new TreeSet<Integer>();
 
-        for(int i = 1 ; i <= 20 ; ++i) {ts.add(i);ts.add(i * 2);ts.add(i * 3);}
-        for(int i : ts) arr.add(i);
+        for(int i = 1 ; i <= 20 ; ++i)
+        {
+            if(!ts.contains(i)) arr.add(i);
+            if(!ts.contains(i * 2)) arr.add(i * 2);
+            if(!ts.contains(i * 3)) arr.add(i * 3);
+            ts.add(i); ts.add(i * 2); ts.add(i * 3);
+        }
         arr.add(50); arr.add(0);
-
 
         while(true)
         {
@@ -24,13 +28,13 @@ public class Main {
             if(n <= 0) break;
 
             int permutations = 0 , combinations = 0;
-            for (int i = 0 ; i < arr.size()   ; ++i)
-                for(int j = 0 ; j < arr.size()  ; ++j)
-                    for(int k = 0 ; k < arr.size() ; ++k)
-                        if (arr.get(i) + arr.get(j) + arr.get(k) == n)
+            for (int i : arr)
+                for(int j : arr)
+                    for(int k : arr)
+                        if (i + j + k == n)
                         {
                             ++permutations;
-                            if(arr.get(i) <= arr.get(j) && arr.get(j) <= arr.get(k)) ++ combinations;
+                            if(i <= j && j <= k) ++ combinations;
                         }
             if(permutations == 0) sb.append("THE SCORE OF "+n+" CANNOT BE MADE WITH THREE DARTS.\n");
             else {
