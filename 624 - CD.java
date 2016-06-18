@@ -9,31 +9,26 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
         StringBuilder sb = new StringBuilder();
-        for(int t = 0 ; sc.ready(); t ++)
+        while (sc.ready())
         {
             int ALL = sc.nextInt() , N = sc.nextInt();
             int arr [] = new int[N];
             for(int i =0 ; i < N ; ++i) arr[i] = sc.nextInt();
 
-            ArrayList<Integer> res = new ArrayList<Integer>();
-            int bestSum = Integer.MAX_VALUE;
+            int bestSum = Integer.MAX_VALUE , bestMask = 0;
 
             int mask = (1 << N);
             while (mask -- > 0)
             {
                 int sum = 0;
-                for(int i = 0 ; i < N ; ++i)
-                    if(((1 << i) & mask) !=0) sum += arr[i];
-                if (sum <= ALL && Math.abs(ALL - sum) < Math.abs(ALL - bestSum))
-                {
-                    res = new ArrayList<>();
-                    for(int i = 0 ; i < N ; ++i)
-                        if(((1 << i) & mask) !=0) res.add(arr[i]);
+                for(int i = 0 ; i < N ; ++i) if(((1 << i) & mask) !=0) sum += arr[i];
+                if (sum <= ALL && Math.abs(ALL - sum) < Math.abs(ALL - bestSum)) {
+                    bestMask = mask;
                     bestSum = sum;
                 }
             }
 
-            for(int i = 0 ; i < res.size() ; ++i) out.printf("%d " , res.get(i));
+            for(int i = 0 ; i < N ; ++i) if(((1 << i) & bestMask) !=0 )out.printf("%d " , arr[i]);
             out.printf("sum:%d\n" , bestSum);
         }
         out.flush();
