@@ -1,10 +1,10 @@
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
-
+// TOP DOWN 
+// BOTTOM UP is in the bottom .
 public class Main {
     static int N ;
     static int [] val ;
@@ -36,8 +36,39 @@ public class Main {
         out.close();
     }
 
+// BOTTOM UP
+/*
+    static int N ;
+    static int [] val ;
+    public static int ans (int sum)
+    {
+        int dp [][] = new int[N][sum + 1];
+        if (N != 0) for (int i = 0 ; i < sum + 1 ; ++i) dp[0][i] = val[0] <= i ? val[0] : 0;
+        for (int i = 1 ; i < N ; ++i)
+            for (int j = 0 ; j < sum + 1; ++j)
+                dp[i][j] = val[i] <= j ? Math.max(dp[i - 1][j] , val[i] + dp[i - 1][j - val[i]]) : dp[i - 1][j];
+        return N == 0 ? 0 : dp[N - 1][sum];
+    }
+    public static void main(String[]args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        PrintWriter out = new PrintWriter(System.out);
+        StringBuilder sb = new StringBuilder();
+        int T = sc.nextInt();
+        while (T -- > 0)
+        {
+            N = sc.nextInt(); val = new int[N];
+            int all = 0;
+            for (int i = 0 ; i < N ; ++i) {val[i] = sc.nextInt(); all += val[i];}
+            int nearest = ans (all / 2);
+            out.printf("%d\n" , Math.abs(all - nearest - nearest));
+        }
+        out.flush();
+        out.close();
+    }
 
 
+
+*/
 
 
 
