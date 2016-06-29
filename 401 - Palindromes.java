@@ -38,7 +38,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
         StringBuilder sb = new StringBuilder();
-        int it = 0 ;
         while (sc.ready())
         {
             String word = sc.next();
