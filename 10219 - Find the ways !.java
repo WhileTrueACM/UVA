@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
 
     public static void main (String [] args) throws IOException {
-
+        // Naive solution. The right one is to take (log10(n) + log10(n - 1) + ... + log10 (n - k + 1) )/( log10(k) + log10 (k - 1) + ... + log10(1))
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
         StringBuilder sb = new StringBuilder();
