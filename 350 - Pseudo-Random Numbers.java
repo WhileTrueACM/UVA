@@ -15,6 +15,20 @@ public class Main {
             int i = sc.nextInt();
             int m = sc.nextInt();
             int l = sc.nextInt();
+            /*
+            Floyd
+            int cnt = 0 ;
+            int slow = l , fast = l;
+            while (true)
+            {
+                slow = (z * slow + i) % m ;
+                fast = (z * fast + i) % m ;
+                fast = (z * fast + i) % m;
+                if (slow == fast) break;
+                ++cnt;
+            }
+            out.printf("Case %d: %d\n" , T , cnt + 1);
+            */
             if (z == i && i == m && m == z && z == 0) break;
             TreeSet<Integer> treeSet = new TreeSet<>();
             while (true)
