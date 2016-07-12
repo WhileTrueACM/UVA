@@ -16,7 +16,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
         StringBuilder sb = new StringBuilder();
-        String song [] = {"Happy" , "birthday" , "to" , "you" , "Happy" , "birthday" , "to" , "you" , "Happy" , "birthday" , "to" , "Rujia" , "Happy" , "birthday" , "to" , "you" };
+        String song [] = {"Happy" , "birthday" , "to" , "you" , "Happy" , "birthday" , "to" , "you" ,
+                          "Happy" , "birthday" , "to" , "Rujia" , "Happy" , "birthday" , "to" , "you" };
         int n = sc.nextInt();
         String names [] = new String[n];
         for (int i = 0 ; i < n ; ++i){
