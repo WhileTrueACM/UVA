@@ -72,18 +72,7 @@ public class Main {
         out.close();
     }
 
-    static boolean lost(char mines[][], char touched[][]) {
-        for (int i = 0; i < mines.length; ++i) {
-            for (int j = 0; j < mines[i].length; ++j) {
-                if (mines[i][j] == '*' && touched[i][j] == 'x') return true;
-            }
-        }
-        return false;
-    }
-
-    static boolean valid(int x, int y, int n) {
-        return x >= 0 && y >= 0 && x < n && y < n;
-    }
+    
 
     static class Scanner {
         StringTokenizer st;
