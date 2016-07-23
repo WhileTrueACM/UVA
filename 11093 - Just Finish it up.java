@@ -3,7 +3,9 @@ import java.util.*;
 
 public class Main {
 
-
+    // My solution is overkill.
+    // A better solution is to make the start day is 0 and continue to take days if ur sum is > 0 whenerever 
+    // it is < 0 at i then all the indices form 0 - i cannot be taken as the start point.
     public static void main(String[]args) throws Exception {
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
