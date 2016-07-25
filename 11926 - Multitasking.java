@@ -1,51 +1,53 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.lang.reflect.Array;
+import java.util.*;
 
 
 public class Main {
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+
+
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
+        StringBuilder sb = new StringBuilder();
+
         while (true){
             int n = sc.nextInt();
             int m = sc.nextInt();
             if (n == 0 && m == 0) break;
 
-            int start [] = new int[1000001];
-            int end   [] = new int[1000001];
+            int MAX = 1000000;
+            boolean time [] = new boolean[MAX + 1];
+            boolean conflict = false;
             for (int i = 0 ; i < n ; ++i){
-                ++ start[sc.nextInt()];
-                ++ end  [sc.nextInt()];
+                int start = sc.nextInt();
+                int end =   sc.nextInt();
+                for (int j = start ; j < end ; ++j)
+                    if (time[j]) conflict = true;
+                    else time[j] = true;
             }
 
             for (int i = 0 ; i < m ; ++i){
-                int s = sc.nextInt();
-                int e = sc.nextInt();
-                int p = sc.nextInt();
-                for (int j = s ; j <= 1000000 ; j += p)
-                    ++ start[j];
-                for (int j = e ; j <= 1000000 ; j += p)
-                    ++ end[j];
-            }
-
-            int numberOfTasks = 0 ;
-            boolean conflict = false;
-            for (int i = 0 ; i <= 1000000  ; ++i){
-                numberOfTasks += (start[i] - end[i]);
-                if (numberOfTasks > 1)  {
-                    conflict = true;
-                    break;
+                int start = sc.nextInt();
+                int end   = sc.nextInt();
+                int p     = sc.nextInt();
+                for (int s = start , e = end ; s <= MAX ; s += p , e += p){
+                    for (int j = s ; j < e && j <= MAX; ++j)
+                        if (time[j]) conflict = true;
+                        else time[j] = true;
                 }
             }
 
-            if (conflict) out.print("CONFLICT\n");
-            else out.print("NO CONFLICT\n");
+            out.print(conflict ? "CONFLICT\n" : "NO CONFLICT\n");
         }
+
         out.flush();
         out.close();
     }
+
+
+
 
 
 
