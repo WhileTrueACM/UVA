@@ -16,7 +16,6 @@ public class Main {
         return sb.toString();
     }
     public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
